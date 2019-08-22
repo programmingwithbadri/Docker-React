@@ -7,4 +7,4 @@ before_install:
   - docker build -t programmingwithbadri/frontend -f Dockerfile.dev . # Builds the docker image
 
 script:
-  - docker run programmingwithbadri/frontend npm run test -- --coverage # Runs the test and code coverage from image
+  - docker run -e CI=true programmingwithbadri/frontend npm run test # Runs the test and exit from image
