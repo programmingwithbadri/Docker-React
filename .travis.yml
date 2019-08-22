@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+  - docker # Install docker in Travis
+
+before_install:
+  - docker build -t programmingwithbadri/frontend -f Dockerfile.dev . # Builds the docker image
+
+script:
+  - docker run programmingwithbadri/frontend npm run test -- --coverage # Runs the test and code coverage from image
