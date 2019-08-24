@@ -8,3 +8,19 @@ before_install:
 
 script:
   - docker run -e CI=true programmingwithbadri/frontend npm run test # Runs the test and exit from image
+
+deploy:
+  provider: elasticbenstalk
+  region: "us-east-2"
+  app: "docker-react"
+  env: "DockerReact-env" 
+  bucket_name: "elasticbeanstalk-us-east-2-731817459015"
+  bucket_path: "docker-react"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
+
+
+    
