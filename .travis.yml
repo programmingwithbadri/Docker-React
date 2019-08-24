@@ -10,7 +10,7 @@ script:
   - docker run -e CI=true programmingwithbadri/frontend npm run test # Runs the test and exit from image
 
 deploy:
-  provider: elasticbenstalk
+  provider: elasticbeanstalk
   region: "us-east-2"
   app: "docker-react"
   env: "DockerReact-env" 
